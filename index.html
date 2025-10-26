@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mithila Coaching - Quality Education for Success</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for Theming */
+        :root {
+            --primary: #2c5aa0;
+            --secondary: #ff6b6b;
+            --accent: #4ecdc4;
+            --dark: #2d3436;
+            --light: #f9f9f9;
+            --text: #333333;
+            --text-light: #777777;
+            --card-bg: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --border-radius: 10px;
+            --nav-height: 80px;
+        }
+
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --primary: #3a7bd5;
+            --secondary: #ff8e8e;
+            --accent: #5fe0d8;
+            --dark: #f5f6fa;
+            --light: #121212;
+            --text: #f5f6fa;
+            --text-light: #b0b0b0;
+            --card-bg: #1e1e1e;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Navigation - COMPLETELY FIXED FOR MOBILE */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+            height: var(--nav-height);
+            overflow: hidden;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            white-space: nowrap;
+            z-index: 1002;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover, 
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 1002;
+        }
+
+        .dark-mode-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .dark-mode-toggle i {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .dark-mode-toggle .fa-sun {
+            color: #ffc107;
+        }
+
+        .dark-mode-toggle .fa-moon {
+            color: #9e9e9e;
+        }
+
+        .toggle-ball {
+            position: absolute;
+            left: 5px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 0;
+        }
+
+        [data-theme="dark"] .toggle-ball {
+            transform: translateX(30px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        /* Hero Section */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: var(--nav-height);
+            background: linear-gradient(rgba(44, 90, 160, 0.9), rgba(44, 90, 160, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .achievement-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .achievement-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            min-width: 180px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .achievement-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Students Section */
+        #students {
+            background-color: var(--light);
+        }
+
+        .students-container {
+            position: relative;
+        }
+
+        .student-scroll-container {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            margin-bottom: 2rem;
+        }
+
+        .student-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .student-card {
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .student-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            transition: var(--transition);
+        }
+
+        .student-card:hover .student-avatar {
+            transform: scale(1.1);
+        }
+
+        .student-name {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .student-class {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .student-marks {
+            background: rgba(44, 90, 160, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--primary);
+            display: inline-block;
+        }
+
+        .scroll-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .scroll-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: none;
+            color: var(--primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Timetable Section */
+        #timetable {
+            background-color: var(--card-bg);
+        }
+
+        .timetable-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .control-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .day-selector {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .day-tab {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background-color: var(--light);
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .day-tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .timetable-cards-container {
+            position: relative;
+            height: 500px;
+        }
+
+        .timetable-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.6s, opacity 0.4s ease;
+            opacity: 0;
+            transform: translateX(100%);
+        }
+
+        .timetable-card.active {
+            opacity: 1;
+            transform: translateX(0);
+            z-index: 10;
+        }
+
+        .timetable-card.prev {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+        .timetable-card.next {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .day-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .day-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            background-color: rgba(44, 90, 160, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .class-schedule {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .class-group {
+            background-color: rgba(44, 90, 160, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+
+        .class-group:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .class-group h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .class-time {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .class-time i {
+            color: var(--secondary);
+        }
+
+        .no-class {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-light);
+        }
+
+        .no-class i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Classes Section */
+        #classes {
+            background-color: var(--light);
+        }
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .class-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .class-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .class-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .class-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .class-card:hover .class-icon {
+            transform: scale(1.1);
+        }
+
+        .class-header h3 {
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+
+        .class-features {
+            margin: 1.5rem 0;
+            list-style: none;
+        }
+
+        .class-features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+            color: var(--text);
+        }
+
+        .class-features i {
+            color: var(--secondary);
+            margin-right: 0.8rem;
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .class-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .meta-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .meta-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .meta-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .class-cta {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .class-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(44, 90, 160, 0.3);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--card-bg);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .contact-link:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .contact-form-container {
+            background-color: var(--light);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-title {
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .form-control {
+            padding: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            background-color: var(--card-bg);
+            color: var(--text);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(44, 90, 160, 0.3);
+        }
+
+        .map-container {
+            margin-top: 4rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .map-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-about {
+            grid-column: span 2;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            font-size: 0.8rem;
+            color: var(--secondary);
+        }
+
+        .footer-contact {
+            list-style: none;
+        }
+
+        .footer-contact li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .footer-contact i {
+            color: var(--secondary);
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .footer-contact span {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(44, 90, 160, 0.4);
+        }
+
+        /* Responsive Design - COMPLETELY FIXED FOR MOBILE */
+        @media (max-width: 1200px) {
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-about {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-about {
+                grid-column: span 2;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - var(--nav-height));
+                background-color: var(--card-bg);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                z-index: 999;
+                overflow-y: auto;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1.5rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                display: block;
+                padding: 1rem 0;
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .class-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timetable-cards-container {
+                height: auto;
+                min-height: 500px;
+            }
+            
+            .class-schedule {
+                grid-template-columns: 1fr;
+            }
+            
+            .student-card {
+                flex: 0 0 280px;
+            }
+            
+            .achievement-card {
+                min-width: 150px;
+                padding: 1.5rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-about {
+                grid-column: span 1;
+            }
+            
+            /* Fix for header width on mobile */
+            .nav-container {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            /* Ensure nav stays within viewport */
+            nav {
+                width: 100%;
+                left: 0;
+                right: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-about {
+                grid-column: span 1;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .achievement-cards {
+                gap: 1rem;
+            }
+            
+            .achievement-card {
+                min-width: 140px;
+                padding: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .day-selector {
+                gap: 0.3rem;
+            }
+            
+            .day-tab {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .timetable-card {
+                padding: 1.5rem;
+            }
+            
+            .class-card {
+                padding: 1.5rem;
+            }
+            
+            .contact-card {
+                padding: 1.5rem;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                align-self: center;
+            }
+            
+            .contact-form-container {
+                padding: 1.5rem;
+            }
+            
+            .footer-container {
+                gap: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            /* Additional mobile fixes */
+            .container {
+                padding: 0 15px;
+            }
+            
+            .nav-container {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .dark-mode-toggle {
+                width: 50px;
+                height: 25px;
+            }
+            
+            .dark-mode-toggle i {
+                font-size: 0.7rem;
+            }
+            
+            .toggle-ball {
+                width: 18px;
+                height: 18px;
+            }
+            
+            [data-theme="dark"] .toggle-ball {
+                transform: translateX(25px);
+            }
+            
+            /* Ensure no horizontal scrolling */
+            body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+            
+            html {
+                overflow-x: hidden;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .student-card {
+                flex: 0 0 250px;
+            }
+            
+            .achievement-card {
+                min-width: 120px;
+                padding: 1rem;
+            }
+            
+            .achievement-card .number {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                font-size: 1.1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-container {
+                padding: 0 10px;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            /* Extra small screen fixes */
+            .mobile-menu-btn {
+                font-size: 1.3rem;
+            }
+            
+            .dark-mode-toggle {
+                width: 45px;
+                height: 22px;
+            }
+            
+            .toggle-ball {
+                width: 16px;
+                height: 16px;
+            }
+            
+            [data-theme="dark"] .toggle-ball {
+                transform: translateX(23px);
+            }
+        }
+
+        /* Prevent horizontal scrolling completely */
+        @media (max-width: 767px) {
+            body, html {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+            
+            nav {
+                width: 100vw;
+                left: 0;
+                right: 0;
+            }
+            
+            .nav-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                Mithila Coaching
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#students">Students</a></li>
+                <li><a href="#timetable">Timetable</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div class="dark-mode-toggle" id="darkModeToggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                    <div class="toggle-ball"></div>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container hero-content">
+            <h1>Quality Education for Bright Future</h1>
+            <p>Personalized coaching for academic excellence and competitive exam preparation</p>
+            
+            <div class="cta-buttons">
+                <a href="#classes" class="btn btn-primary">Explore Classes</a>
+                <a href="#contact" class="btn btn-secondary">Contact Us</a>
+            </div>
+            
+            <div class="achievement-cards">
+                <div class="achievement-card">
+                    <span class="number">50+</span>
+                    <p>Students Enrolled</p>
+                </div>
+                <div class="achievement-card">
+                    <span class="number">90%</span>
+                    <p>Success Rate</p>
+                </div>
+                <div class="achievement-card">
+                    <span class="number">1</span>
+                    <p>Expert Teachers</p>
+                </div>
+                <div class="achievement-card">
+                    <span class="number">3+</span>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Students Section -->
+    <section id="students" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Top Students</h2>
+                <p class="section-subtitle">Meet our high achievers who have excelled in their academic journey with our coaching</p>
+            </div>
+            
+            <div class="students-container">
+                <div class="student-scroll-container" id="studentScroll">
+                    <!-- Student cards will be populated by JavaScript -->
+                </div>
+                
+                <div class="scroll-controls">
+                    <button class="scroll-btn" id="scrollLeft">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn" id="scrollRight">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timetable Section -->
+    <section id="timetable" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Weekly Timetable</h2>
+                <p class="section-subtitle">Plan your study schedule with our organized class timetable</p>
+            </div>
+            
+            <div class="timetable-controls">
+                <button class="control-btn" id="prevDay">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="day-selector" id="daySelector">
+                    <!-- Day tabs will be populated by JavaScript -->
+                </div>
+                
+                <button class="control-btn" id="nextDay">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="timetable-cards-container" id="timetableCards">
+                <!-- Timetable cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="classes" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Classes</h2>
+                <p class="section-subtitle">Choose from our wide range of courses designed for academic success</p>
+            </div>
+            
+            <div class="class-grid" id="classGrid">
+                <!-- Class cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p class="section-subtitle">Get in touch with us for any queries or enrollment information</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Our Location</h3>
+                            <p>Doghra Bajar street </p>
+                            <p>Munna Tent House</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone Number</h3>
+                            <p>+91 9334797386</p>
+                            <p>+91 9508043624</p>
+                            <a href="tel:+919334797386" class="contact-link">Call Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Address</h3>
+                            <p>mdtamim20047@gmail.com</p>
+                            <a href="mailto:mdtamim20047@gmail.com" class="contact-link">Send Email</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h3 class="form-title">Send us a Message</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Enter subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Enter your message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Our Location</h3>
+                    <p>Doghra Bajar wale raste Munna Tent House ke pass</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        Mithila Coaching
+                    </div>
+                    <p>Providing quality education and personalized coaching for over 3 years. Our mission is to help students achieve academic excellence and build a bright future.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#students"><i class="fas fa-chevron-right"></i> Students</a></li>
+                        <li><a href="#timetable"><i class="fas fa-chevron-right"></i> Timetable</a></li>
+                        <li><a href="#classes"><i class="fas fa-chevron-right"></i> Classes</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Our Classes</h3>
+                    <ul class="footer-links">
+                        <li><a href="#classes"><i class="fas fa-chevron-right"></i> Class 9-10</a></li>
+                        <li><a href="#classes"><i class="fas fa-chevron-right"></i> Class 11-12</a></li>
+                        <li><a href="#classes"><i class="fas fa-chevron-right"></i> JEE Preparation</a></li>
+                        <li><a href="#classes"><i class="fas fa-chevron-right"></i> NEET Preparation</a></li>
+                        <li><a href="#classes"><i class="fas fa-chevron-right"></i> Foundation Courses</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact-column">
+                    <h3 class="footer-heading">Contact Info</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Doghra Bajar wale raste Munna Tent House ke pass</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 9334797386</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>mdtamim20047@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Sat: 8:00 AM - 8:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2025 Mithila Coaching. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script>
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.querySelector('.nav-links');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const backToTop = document.getElementById('backToTop');
+        const contactForm = document.getElementById('contactForm');
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Dark Mode Toggle
+        darkModeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+
+        // Back to Top Button
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Contact Form Submission
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Show success message
+            alert(`Thank you, ${name}! Your message has been sent successfully. We will contact you at ${email} soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Students Data and Functionality
+        const studentsData = [
+            { name: "Sabreen", class: "Class 12", initial: "S", marks: "349/500" },
+            { name: "Sahemen", class: "Class 12 ", initial: "S", marks: "392/500" },
+            { name: "Jubaida Khatoon", class: "Class 12", initial: "J", marks: "300/500" },
+            { name: "Radhika Kumari", class: "Class 12", initial: "R", marks: "392/500" },
+            { name: "Mahenaz Khanam", class: "Class 12", initial: "M", marks: "377/500" },
+            { name: "Shahida Khatoon", class: "Class 12", initial: "S", marks: "416/500" },
+            { name: "Asiya Naeem", class: "Class 12", initial: "A", marks: "400/500" },
+            { name: "Sabiha Fatma", class: "Class 12", initial: "S", marks: "417/500" },
+            { name: "Sagufta Naz", class: "Class 12", initial: "S", marks: "375/500" },
+            { name: "Rahmati Khatoon", class: "Class 12", initial: "R", marks: "384/500" },
+            { name: "Farhat Parween", class: "Class 12", initial: "F", marks: "369/500" },
+            { name: "Happy Kumar", class: "Class 12", initial: "H", marks: "381/500" },
+            { name: "Sumbul Afsha", class: "Class 12", initial: "S", marks: "333/500" },
+            { name: "Sumaiya Parween", class: "Class 12", initial: "S", marks: "378/500" },
+            { name: "Nemat Khatoon", class: "Class 12", initial: "N", marks: "406/500" },
+            { name: "Nikki Kumari", class: "Class 12", initial: "N", marks: "360/500" },
+            { name: "Satrodhan Bhandari", class: "Class 12", initial: "S", marks: "409/500" },
+            { name: "Priyank Kumar", class: "Class 12", initial: "P", marks: "421/500" },
+            { name: "Rokhsar Prween", class: "Class 10", initial: "R", marks: "316/500" },
+            { name: "Rishika Kumari", class: "Class 10", initial: "R", marks: "360/500" },
+            { name: "Sujata Kumari", class: "Class 10", initial: "S", marks: "404/500" },
+            { name: "Aafreen Khatoon", class: "Class 10", initial: "R", marks: "398/500" },
+            { name: "Anjani Kumari", class: "Class 10", initial: "A", marks: "412/500" },
+            { name: "Zainab Khatoon", class: "Class 10", initial: "Z", marks: "417/500" },
+            { name: "Md Ashif Ansari", class: "Class 10", initial: "A", marks: "393/500" },
+            { name: "Gulafasha Parween", class: "Class 10", initial: "G", marks: "290/500" },
+        ];
+
+        const studentScroll = document.getElementById('studentScroll');
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+
+        // Populate student cards
+        studentsData.forEach(student => {
+            const studentCard = document.createElement('div');
+            studentCard.className = 'student-card';
+            studentCard.innerHTML = `
+                <div class="student-avatar">${student.initial}</div>
+                <h3 class="student-name">${student.name}</h3>
+                <p class="student-class">${student.class}</p>
+                <div class="student-marks">${student.marks}</div>
+            `;
+            studentScroll.appendChild(studentCard);
+        });
+
+        // Scroll functionality
+        scrollLeftBtn.addEventListener('click', () => {
+            studentScroll.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        scrollRightBtn.addEventListener('click', () => {
+            studentScroll.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        // Timetable Data and Functionality
+        const timetableData = {
+            monday: {
+                date: "Oct 23",
+                classes: [
+                    { time: "8:00 AM - 9:30 AM", subject: "Mathematics - Class 10" },
+                    { time: "10:00 AM - 11:30 AM", subject: "Physics - Class 12" },
+                    { time: "12:00 PM - 1:30 PM", subject: "Chemistry - Class 11" },
+                    { time: "3:00 PM - 4:30 PM", subject: "Biology - Class 12" },
+                    { time: "5:00 PM - 6:30 PM", subject: "English - Class 9" }
+                ]
+            },
+            tuesday: {
+                date: "Oct 24",
+                classes: [
+                    { time: "8:00 AM - 9:30 AM", subject: "Physics - Class 10" },
+                    { time: "10:00 AM - 11:30 AM", subject: "Mathematics - Class 12" },
+                    { time: "12:00 PM - 1:30 PM", subject: "Biology - Class 11" },
+                    { time: "3:00 PM - 4:30 PM", subject: "Chemistry - Class 12" }
+                ]
+            },
+            wednesday: {
+                date: "Oct 25",
+                classes: [
+                    { time: "8:00 AM - 9:30 AM", subject: "Chemistry - Class 10" },
+                    { time: "10:00 AM - 11:30 AM", subject: "Mathematics - Class 11" },
+                    { time: "12:00 PM - 1:30 PM", subject: "Physics - Class 12" },
+                    { time: "3:00 PM - 4:30 PM", subject: "English - Class 10" },
+                    { time: "5:00 PM - 6:30 PM", subject: "Biology - Class 11" }
+                ]
+            },
+            thursday: {
+                date: "Oct 26",
+                classes: [
+                    { time: "8:00 AM - 9:30 AM", subject: "Biology - Class 10" },
+                    { time: "10:00 AM - 11:30 AM", subject: "Chemistry - Class 12" },
+                    { time: "12:00 PM - 1:30 PM", subject: "Mathematics - Class 9" },
+                    { time: "3:00 PM - 4:30 PM", subject: "Physics - Class 11" }
+                ]
+            },
+            friday: {
+                date: "Oct 27",
+                classes: [
+                    { time: "8:00 AM - 9:30 AM", subject: "English - Class 12" },
+                    { time: "10:00 AM - 11:30 AM", subject: "Biology - Class 10" },
+                    { time: "12:00 PM - 1:30 PM", subject: "Chemistry - Class 11" },
+                    { time: "3:00 PM - 4:30 PM", subject: "Mathematics - Class 12" },
+                    { time: "5:00 PM - 6:30 PM", subject: "Physics - Class 10" }
+                ]
+            },
+            saturday: {
+                date: "Oct 28",
+                classes: [
+                    { time: "8:00 AM - 9:30 AM", subject: "Revision - Class 10" },
+                    { time: "10:00 AM - 11:30 AM", subject: "Revision - Class 12" },
+                    { time: "12:00 PM - 1:30 PM", subject: "Doubt Clearing Session" }
+                ]
+            },
+            sunday: {
+                date: "Oct 29",
+                classes: []
+            }
+        };
+
+        const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+        const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        let currentDayIndex = new Date().getDay() - 1; // Adjust for Monday as first day
+        if (currentDayIndex < 0) currentDayIndex = 6; // Sunday case
+
+        const daySelector = document.getElementById('daySelector');
+        const timetableCards = document.getElementById('timetableCards');
+        const prevDayBtn = document.getElementById('prevDay');
+        const nextDayBtn = document.getElementById('nextDay');
+
+        // Create day tabs
+        dayNames.forEach((day, index) => {
+            const dayTab = document.createElement('div');
+            dayTab.className = `day-tab ${index === currentDayIndex ? 'active' : ''}`;
+            dayTab.textContent = day.substring(0, 3);
+            dayTab.dataset.day = days[index];
+            dayTab.addEventListener('click', () => {
+                setActiveDay(index);
+            });
+            daySelector.appendChild(dayTab);
+        });
+
+        // Create timetable cards
+        days.forEach((day, index) => {
+            const card = document.createElement('div');
+            card.className = `timetable-card ${index === currentDayIndex ? 'active' : ''}`;
+            card.dataset.day = day;
+            
+            const dayData = timetableData[day];
+            
+            card.innerHTML = `
+                <div class="day-header">
+                    <h2 class="day-name">${dayNames[index]}</h2>
+                    <div class="day-date">${dayData.date}</div>
+                </div>
+                <div class="class-schedule">
+                    ${dayData.classes.length > 0 ? 
+                        dayData.classes.map(cls => `
+                            <div class="class-group">
+                                <h4>${cls.subject}</h4>
+                                <div class="class-time">
+                                    <i class="far fa-clock"></i>
+                                    <span>${cls.time}</span>
+                                </div>
+                            </div>
+                        `).join('') : 
+                        `<div class="no-class">
+                            <i class="far fa-smile"></i>
+                            <h3>No Classes Today</h3>
+                            <p>Enjoy your day off!</p>
+                        </div>`
+                    }
+                </div>
+            `;
+            
+            timetableCards.appendChild(card);
+        });
+
+        // Set active day function
+        function setActiveDay(index) {
+            // Update day tabs
+            document.querySelectorAll('.day-tab').forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            
+            // Update timetable cards
+            document.querySelectorAll('.timetable-card').forEach((card, i) => {
+                card.classList.remove('active', 'prev', 'next');
+                
+                if (i === index) {
+                    card.classList.add('active');
+                } else if (i === (index - 1 + days.length) % days.length) {
+                    card.classList.add('prev');
+                } else if (i === (index + 1) % days.length) {
+                    card.classList.add('next');
+                }
+            });
+            
+            currentDayIndex = index;
+        }
+
+        // Navigation buttons
+        prevDayBtn.addEventListener('click', () => {
+            const newIndex = (currentDayIndex - 1 + days.length) % days.length;
+            setActiveDay(newIndex);
+        });
+
+        nextDayBtn.addEventListener('click', () => {
+            const newIndex = (currentDayIndex + 1) % days.length;
+            setActiveDay(newIndex);
+        });
+
+        // Classes Data and Functionality
+        const classesData = [
+            {
+                title: "Class 9-10 Foundation",
+                icon: "fas fa-graduation-cap",
+                features: [
+                    "Complete CBSE/State Board Syllabus",
+                    "Regular Tests & Assessments",
+                    "Doubt Clearing Sessions",
+                    "Personalized Attention"
+                ],
+                Month:"1 Months",
+                price: "₹200,₹400",
+                students: "20"
+            },
+            {
+                title: "Class 11-12 Science",
+                icon: "fas fa-atom",
+                features: [
+                    "Physics, Chemistry, Mathematics/Biology",
+                    "Experienced Faculty",
+                    "Practical Lab Sessions",
+                    "Competitive Exam Foundation"
+                ],
+                Month: "1 Months",
+                price: "₹500",
+                students: "15"
+            },
+            {
+                title: "JEE Preparation",
+                icon: "fas fa-rocket",
+                features: [
+                    "Complete JEE Mains & Advanced Syllabus",
+                    "Regular Mock Tests",
+                    "Problem Solving Techniques",
+                    "Study Material & Resources"
+                ],
+                Month: "1 Months",
+                price: "₹1000",
+                students: "10"
+            },
+            {
+                title: "NEET Preparation",
+                icon: "fas fa-stethoscope",
+                features: [
+                    "Biology, Physics, Chemistry",
+                    "Expert Medical Faculty",
+                    "Previous Year Papers Analysis",
+                    "Regular Practice Tests"
+                ],
+                Month: "1 Months",
+                price: "₹1000",
+                students: "10"
+            },
+            {
+                title: "Foundation Course (6-8)",
+                icon: "fas fa-seedling",
+                features: [
+                    "Strong Concept Building",
+                    "Interactive Learning",
+                    "Activity Based Teaching",
+                    "Regular Progress Reports"
+                ],
+                Month: "1 Months",
+                price: "₹200",
+                students: "30"
+            },
+            {
+                title: "Crash Course",
+                icon: "fas fa-bolt",
+                features: [
+                    "Last Minute Revision",
+                    "Important Topics Coverage",
+                    "Quick Doubt Resolution",
+                    "Exam Strategy & Tips"
+                ],
+                Month: "1 Months",
+                price: "₹1000",
+                students: "10"
+            }
+        ];
+
+        const classGrid = document.getElementById('classGrid');
+
+        // Populate class cards
+        classesData.forEach((cls, index) => {
+            const classCard = document.createElement('div');
+            classCard.className = 'class-card';
+            
+            classCard.innerHTML = `
+                <div class="class-header">
+                    <div class="class-icon">
+                        <i class="${cls.icon}"></i>
+                    </div>
+                    <h3>${cls.title}</h3>
+                </div>
+                <ul class="class-features">
+                    ${cls.features.map(feature => `
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            ${feature}
+                        </li>
+                    `).join('')}
+                </ul>
+                <div class="class-meta">
+                    <div class="meta-item">
+                        <span class="meta-value">${cls.Month}</span>
+                        <span class="meta-label"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-value">${cls.students}</span>
+                        <span class="meta-label">Students</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-value">${cls.price}</span>
+                        <span class="meta-label">Fees</span>
+                    </div>
+                </div>
+                <a href="#contact" class="class-cta">Enroll Now</a>
+            `;
+            
+            classGrid.appendChild(classCard);
+        });
+
+        // Active nav link highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const navHeight = document.querySelector('nav').offsetHeight;
+                
+                if (window.scrollY >= (sectionTop - navHeight - 50)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
